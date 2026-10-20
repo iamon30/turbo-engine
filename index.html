@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CAD Refresher Module – SSU Mechanical Technology</title>
+<style>
+:root{--bg:#f6efdc;--ink:#2b2a26;--red:#b3261e;--blue:#1f4e79;--card:#fffaf0;--ln:#d8ccae}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);
+background-image:linear-gradient(rgba(31,78,121,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(31,78,121,.08) 1px,transparent 1px);background-size:32px 32px}
+header{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:center;padding:36px 16px 20px;text-align:center}
+h1{margin:0;font-size:clamp(24px,4vw,40px);color:var(--blue)}h1 span{color:var(--red)}
+.scene{perspective:700px;width:140px;height:140px}
+.cube{width:110px;height:110px;margin:15px;position:relative;transform-style:preserve-3d;animation:spin 14s linear infinite}
+.f{position:absolute;inset:0;border:2px solid var(--blue);background:rgba(31,78,121,.1);display:grid;place-items:center;font:700 13px monospace;color:var(--blue)}
+.f:nth-child(1){transform:translateZ(55px)}.f:nth-child(2){transform:rotateY(90deg) translateZ(55px)}.f:nth-child(3){transform:rotateY(180deg) translateZ(55px)}
+.f:nth-child(4){transform:rotateY(-90deg) translateZ(55px)}.f:nth-child(5){transform:rotateX(90deg) translateZ(55px);border-color:var(--red);color:var(--red)}.f:nth-child(6){transform:rotateX(-90deg) translateZ(55px)}
+@keyframes spin{from{transform:rotateX(-25deg) rotateY(0)}to{transform:rotateX(-25deg) rotateY(360deg)}}
+main{max-width:980px;margin:auto;padding:0 14px 60px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:18px;margin:16px 0;box-shadow:0 10px 24px rgba(60,45,10,.18),0 2px 0 var(--ln);transition:transform .15s;transform-style:preserve-3d}
+details.card summary{cursor:pointer;font-weight:700;font-size:18px;color:var(--blue)}
+.chip{display:inline-block;background:var(--blue);color:#fff;border-radius:20px;padding:2px 10px;margin:3px 3px 0 0;font-size:12px}
+li{margin:4px 0}
+label{display:block;font-weight:600;margin-top:10px}
+input,select,button{font:inherit;padding:9px 10px;border-radius:8px;border:1px solid var(--ln);width:100%;background:#fff}
+.row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}@media(max-width:640px){.row{grid-template-columns:1fr}}
+button{background:var(--blue);color:#fff;border:0;font-weight:700;cursor:pointer;margin-top:12px;box-shadow:0 4px 0 #123350}
+button:active{transform:translateY(3px);box-shadow:none}button.red{background:var(--red);box-shadow:0 4px 0 #7a1914}
+.q{border-left:4px solid var(--red);background:#fff;border-radius:8px;padding:10px 12px;margin:10px 0}
+.q label{font-weight:400;margin:4px 0;cursor:pointer}.q input{width:auto;margin-right:8px}
+#bar{position:sticky;top:0;background:var(--red);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;z-index:5}
+.wm{position:fixed;inset:-30%;pointer-events:none;z-index:50;display:flex;flex-wrap:wrap;gap:60px 80px;opacity:.07;transform:rotate(-22deg);font:800 22px monospace;color:#000;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{border:1px solid var(--ln);padding:4px}
+.vid{margin:10px 0;border-radius:10px;overflow:hidden;border:2px solid var(--blue);background:#fff}.vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}.vid .nv{padding:14px;text-align:center}.vid .nv button{width:auto;display:inline-block;padding:9px 18px}.vid h4{margin:0;padding:6px 10px;background:var(--blue);color:#fff;font-size:14px}
+.hide{display:none}.cfg{background:#fff3a3;border:2px dashed var(--red);padding:6px;border-radius:6px}
+</style></head><body>
+<div class="wm" id="wm"></div>
+<header>
+ <div class="scene"><div class="cube"><div class="f">FRONT</div><div class="f">RIGHT</div><div class="f">BACK</div><div class="f">LEFT</div><div class="f">TOP</div><div class="f">BOTTOM</div></div></div>
+ <div><h1>CAD <span>Refresher</span> Module</h1><p>Sorsogon State University · Mechanical Technology · AutoCAD 2D<br><b>RAYMOND D. ENTAL</b></p>
+ <button style="width:auto" onclick="openVideo()">▶ Watch lecture video</button></div>
+</header>
+<main>
+<details class="card" open><summary>1 · SSU Course Orientation and Laboratory Safety</summary><div class="vid" data-t="1"></div><ul>
+<li>University Vision, Mission, Core Values and Program Goals guide every Mechanical Technology outcome.</li>
+<li>Lab rules: no food or drinks, log in/out properly, report damaged equipment, keep aisles clear, save work often.</li>
+<li>Occupational safety and ergonomics: monitor top at or slightly below eye level, feet flat, wrists neutral, 20-20-20 eye rest rule.</li>
+<li>GAD: equal opportunity and respect for all genders. DRRM: Drop, Cover, Hold On, then evacuate calmly. IP integration: respect and include indigenous knowledge.</li>
+<li>CAD in Mechanical Technology: accurate, editable, standard technical drawings for manufacturing.</li></ul>
+<span class="chip">SDG 4</span><span class="chip">SDG 5</span><span class="chip">SDG 8</span><span class="chip">SDG 10</span><span class="chip">SDG 11</span><span class="chip">SDG 12</span><span class="chip">SDG 13</span></details>
+<details class="card"><summary>2 · Introduction to AutoCAD 2D Environment</summary><div class="vid" data-t="2"></div><ul>
+<li>Interface: Ribbon, Application menu, Drawing area, Command line, Status bar; save custom layouts as a Workspace.</li>
+<li>Coordinates: Absolute <code>X,Y</code> · Relative <code>@X,Y</code> · Polar <code>@distance&lt;angle</code>.</li>
+<li>Shortcuts: L Line, C Circle, M Move, CO Copy, TR Trim, O Offset, Ctrl+S Save, Esc cancel.</li>
+<li>Precision: Grid F7, Snap F9, Ortho F8, Object Snap F3, Dynamic Input F12.</li>
+<li>File management: QNEW, UNITS, LIMITS, SAVEAS, templates (.dwt).</li></ul><span class="chip">SDG 4</span><span class="chip">SDG 9</span></details>
+<details class="card"><summary>3 · Fundamentals of 2D Mechanical Drafting</summary><div class="vid" data-t="3"></div><ul>
+<li>Draw: Line, Circle, Arc, Rectangle, Polygon, Ellipse. Use OSNAP for exact endpoints, centers and intersections.</li>
+<li>Orthographic (front, top, side) and isometric (30° axes) drawings.</li>
+<li>Layers: Object (continuous), Hidden (dashed), Center (long-short dash), Dimension, Hatch.</li>
+<li>Components: shafts, gears, bolts, nuts, washers, keys, bearings – drawn to ANSI/ISO standards.</li></ul><span class="chip">SDG 4</span><span class="chip">SDG 9</span></details>
+<details class="card"><summary>4 · Editing and Annotation of Mechanical Drawings</summary><div class="vid" data-t="4"></div><ul>
+<li>Edit: Move, Copy, Rotate, Mirror, Offset, Trim, Extend, Stretch (crossing window), Scale.</li>
+<li>Mechanical tools: Chamfer (bevel), Fillet (round), Array (rectangular/polar), Break, Join.</li>
+<li>Annotation: DTEXT (single line), MTEXT (multi-line), Leaders, Tables, Dimension Styles (DIMSTYLE).</li>
+<li>Symbols, tolerances, centerlines, hidden lines, HATCH for section lining; prepare Layouts for documentation.</li></ul><span class="chip">SDG 4</span><span class="chip">SDG 9</span></details>
+
+<section class="card" id="reg">
+<h2 style="color:var(--red);margin-top:0">Refresher Quiz (10 items, unique per student)</h2>
+<p>Switching tabs or leaving this page during the quiz <b>closes it automatically</b> and submits your answers so far.</p>
+<div class="row"><div><label>Last name</label><input id="ln" autocomplete="off"></div><div><label>First name</label><input id="fn" autocomplete="off"></div><div><label>M.I.</label><input id="mi" maxlength="2"></div></div>
+<div class="row" style="grid-template-columns:1fr 2fr"><div><label>Section</label><select id="sec"><option value="">Select ▾</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>4E</option></select></div>
+<div><label>Valid email</label><input id="em" type="email"></div></div>
+<button onclick="startQuiz()">Start Quiz</button><p id="err" style="color:var(--red)"></p></section>
+
+<section class="card hide" id="quiz"><div id="bar"></div><div id="qs"></div><button class="red" onclick="finish('Submitted')">Submit Answers</button></section>
+<section class="card hide" id="res"><h2>Result</h2><div id="rt"></div><img id="img" style="max-width:100%;border:1px solid var(--ln)"><button onclick="dl()">⬇ Download result again</button></section>
+
+<section class="card"><b>Admin</b> <input id="ap" type="password" placeholder="Admin password" style="width:220px"> <button style="width:auto;display:inline-block;margin:0 0 0 6px" onclick="admin()">Open</button>
+<div id="ad" class="hide"><p>Local log (this device only). Official records go to your Google Sheet.</p>
+<label>Google Sheet web app URL (optional override)</label><input id="su" placeholder="https://script.google.com/macros/s/.../exec"><button onclick="saveUrl()">Save URL</button>
+<div style="overflow:auto"><table id="lg"></table></div><button class="red" onclick="localStorage.removeItem('log');admin()">Clear local log</button></div></section>
+</main>
+<script>
+/* ============================================================
+   ★★★ PASTE YOUR GOOGLE SHEET LINK HERE (Apps Script Web App URL ending in /exec) ★★★
+   ============================================================ */
+const CONFIG={
+  SHEET_URL:"https://script.google.com/macros/s/AKfycbx7aPzw1kAYKCeOvXXmd2BZcQEJsFAWf-JjuPmwe2azxZdSs2SvwJ7wSnQQfV6I6kQx/exec",   // <<< PASTE HERE
+  VIDEO_URL:"PASTE_YOUR_YOUTUBE_LINK_HERE",                // <<< main lecture video link
+  /* ★ PASTE ONE YOUTUBE LINK PER TOPIC BELOW (watch?v=..., youtu.be/..., or /embed/... all work).
+     Leave "" to show a "Find video on YouTube" button instead. */
+  VIDEOS:{
+    1:"",   // <<< Topic 1: SSU Orientation and Laboratory Safety
+    2:"",   // <<< Topic 2: Introduction to AutoCAD 2D Environment
+    3:"",   // <<< Topic 3: Fundamentals of 2D Mechanical Drafting
+    4:""    // <<< Topic 4: Editing and Annotation of Mechanical Drawings
+  },
+  ADMIN_PASS:"RDDE_2026"
+};
+const A=["Before using any lab equipment you should|Read and follow the laboratory rules|Plug in personal chargers anywhere|Move the computers|Open the power supply unit",
+"Which behavior violates computer lab rules?|Eating and drinking at workstations|Logging out after use|Reporting damaged equipment|Keeping aisles clear",
+"For good ergonomics, the monitor top should be|At or slightly below eye level|Far above eye level|On the floor|Behind the user",
+"The 20-20-20 rule means every 20 minutes look 20 feet away for|20 seconds|20 minutes|2 seconds|2 hours",
+"The goal of Gender and Development (GAD) is to|Promote gender equality and equal opportunities|Favor one gender in lab work|Remove safety rules|Limit enrolment",
+"During an earthquake inside the lab you should first|Drop, cover and hold on, then evacuate calmly|Use the elevator|Keep working|Run toward the windows",
+"Integrating Indigenous Peoples (IP) in the curriculum means|Respecting and including indigenous knowledge and culture|Ignoring local culture|Teaching only foreign methods|Excluding IP students",
+"Which SDG is Quality Education?|SDG 4|SDG 5|SDG 9|SDG 13",
+"CAD in Mechanical Technology is mainly used to|Create accurate, editable technical drawings|Replace all machining|Write payroll|Edit photos"];
+const B=["Absolute coordinate entry format is|X,Y|@X,Y|@distance<angle|#<angle",
+"Relative coordinate entry format is|@X,Y|X,Y|<angle|Z,Y only",
+"Polar coordinate entry format is|@distance<angle|X,Y|@X,Y|distance,angle,0",
+"Which function key toggles Ortho mode?|F8|F3|F7|F12",
+"Which function key toggles Object Snap?|F3|F8|F9|F2",
+"Which command alias starts the LINE command?|L|C|M|CP",
+"Which toggle shows the dotted reference grid?|Grid (F7)|Ortho (F8)|OSNAP (F3)|Dynamic Input (F12)",
+"The UNITS command sets|Drawing units and precision|Layer colors|Text height only|Plot scale only",
+"Dynamic Input (F12) displays|Distance and angle tooltips at the cursor|File size|Printer status|The layer list"];
+const C=["Which linetype is standard for hidden edges?|HIDDEN (dashed)|CENTER|CONTINUOUS|DOT",
+"Which linetype marks the axis of a hole or shaft?|CENTER (long-short dash)|HIDDEN|CONTINUOUS|DOT",
+"Orthographic drawings show the object as|Separate front, top and side views|One pictorial view only|A photo|An animation",
+"Isometric drawings use axes at about|30° from horizontal|45° from horizontal|60° from vertical only|90° only",
+"A key in a shaft assembly is used to|Transmit torque between shaft and hub|Seal oil|Cool the shaft|Hold a washer",
+"A washer is mainly used to|Distribute the load of a nut or bolt head|Cut threads|Transmit torque|Lubricate",
+"The POLYGON command creates a shape with|Equal-length sides|Only one side|Curved sides only|Unequal sides only",
+"ANSI and ISO are examples of|Drafting standards|Software viruses|Printer brands|Layer names",
+"Separate layers for object, hidden and center lines help to|Control color, linetype and visibility|Reduce paper size|Lock the keyboard|Rotate the view",
+"A rolling bearing drawing shows|Inner race, outer race and rolling elements|Only a single line|A threaded rod|Gear teeth"];
+const D=["TRIM is used to|Cut objects at a cutting edge|Lengthen objects to a boundary|Mirror objects|Scale objects",
+"EXTEND is used to|Lengthen objects to a boundary edge|Delete objects|Create arrays|Add text",
+"OFFSET creates|A parallel copy at a set distance|A mirror image|A rotated copy|A rounded corner",
+"FILLET produces|A rounded corner with a radius|A beveled corner|A text leader|A section hatch",
+"CHAMFER produces|A beveled (angled) corner|A rounded corner|A circle|A mirrored copy",
+"ARRAY is used to|Create rectangular or polar patterns|Join two lines|Write one-line text|Break a circle",
+"Which command writes multi-line formatted text?|MTEXT|DTEXT|BREAK|JOIN",
+"Section lining on cut surfaces is created with|HATCH|FILLET|STRETCH|ORTHO",
+"Dimension arrows, text and units are controlled by|Dimension Style (DIMSTYLE)|LIMITS|PURGE|ZOOM",
+"STRETCH works with|A crossing selection window|Only text|Layers only|Blocks only"];
+const QB=[A,B,C,D].map(g=>g.map(s=>{const a=s.split("|");return{q:a[0],c:a[1],o:a.slice(1)}}));
+const $=s=>document.getElementById(s);
+const wm=$("wm");for(let i=0;i<120;i++){const s=document.createElement("span");s.textContent="RAYMOND D. ENTAL";wm.appendChild(s)}
+function H(s){let x=1779033703^s.length;for(let i=0;i<s.length;i++){x=Math.imul(x^s.charCodeAt(i),3432918353);x=x<<13|x>>>19}return x>>>0}
+function R(a){return()=>{a|=0;a=a+1831565813|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function sh(arr,r){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function build(seed){const r=R(seed),p=[],l=[];QB.forEach(g=>{const s=sh(g,r);p.push(...s.slice(0,2));l.push(...s.slice(2))});p.push(...sh(l,r).slice(0,2));return sh(p,r).map(q=>({q:q.q,c:q.c,o:sh(q.o,r)}))}
+const ls={g:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const url=()=>ls.g("sheetUrl","")||CONFIG.SHEET_URL;
+let S=null,active=false,tm=null,items=[],last=null;
+const L="ABCD",fmt=d=>d.toLocaleString("en-PH",{hour12:true});
+const VT={1:["Computer laboratory safety and ergonomics","computer laboratory safety rules and ergonomics"],2:["Introduction to AutoCAD 2D","AutoCAD 2D interface coordinates tutorial for beginners"],3:["Fundamentals of 2D Mechanical Drafting","AutoCAD mechanical drafting orthographic isometric tutorial"],4:["Editing and Annotation","AutoCAD editing commands dimensioning annotation tutorial"]};
+function ytId(u){const m=(u||"").match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);return m?m[1]:null}
+document.querySelectorAll(".vid").forEach(d=>{const n=d.dataset.t,id=ytId(CONFIG.VIDEOS[n]),t=VT[n];
+ if(id)d.innerHTML=`<h4>▶ Educational video: ${t[0]}</h4><iframe src="https://www.youtube-nocookie.com/embed/${id}" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen loading="lazy" title="${t[0]}"></iframe>`;
+ else d.innerHTML=`<h4>▶ Educational video: ${t[0]}</h4><div class="nv"><button onclick="window.open('https://www.youtube.com/results?search_query='+encodeURIComponent('${t[1]}'),'_blank')">🔎 Find video on YouTube</button></div>`});
+function openVideo(){CONFIG.VIDEO_URL.startsWith("http")?window.open(CONFIG.VIDEO_URL,"_blank"):alert("Instructor: set VIDEO_URL in the CONFIG block.")}
+function startQuiz(){
+ const ln=$("ln").value.trim(),fn=$("fn").value.trim(),mi=$("mi").value.trim().toUpperCase(),sec=$("sec").value,em=$("em").value.trim().toLowerCase();
+ if(!ln||!fn||!mi||!sec)return $("err").textContent="Please complete last name, first name, M.I. and section.";
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em))return $("err").textContent="Enter a valid email address.";
+ $("err").textContent="";
+ const att=ls.g("att:"+em,0)+1;
+ S={ln,fn,mi,sec,em,att,start:new Date()};
+ items=build(H(ln+fn+mi+em+att).valueOf());
+ $("qs").innerHTML=items.map((it,i)=>`<div class="q"><b>${i+1}. ${it.q}</b>${it.o.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}">${L[j]}. ${o}</label>`).join("")}</div>`).join("");
+ $("reg").classList.add("hide");$("quiz").classList.remove("hide");$("res").classList.add("hide");
+ active=true;const t0=Date.now();
+ tm=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);$("bar").textContent=`⏱ ${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}  ·  Attempt ${att}  ·  Do not leave this tab`},500);
+ window.scrollTo(0,0);
+}
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&active)finish("Auto-closed: tab switched")});
+window.addEventListener("pagehide",()=>{if(active)finish("Auto-closed: page left")});
+function finish(status){
+ if(!active)return;active=false;clearInterval(tm);
+ const key=items.map((it,i)=>{const v=document.querySelector(`input[name=q${i}]:checked`);const y=v?+v.value:-1;const k=it.o.indexOf(it.c);return{n:i+1,y:y<0?"-":L[y],k:L[k],t:it.c,ok:y===k}});
+ const score=key.filter(x=>x.ok).length;
+ last={...S,end:new Date(),status,score,key};
+ ls.s("att:"+S.em,S.att);
+ const lg=ls.g("log",[]);lg.push({name:`${S.ln}, ${S.fn} ${S.mi}.`,sec:S.sec,em:S.em,att:S.att,start:fmt(S.start),end:fmt(last.end),score,status});ls.s("log",lg);
+ const u=url();
+ if(u.startsWith("http")){try{fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({lastName:S.ln,firstName:S.fn,mi:S.mi,section:S.sec,email:S.em,attempt:S.att,start:fmt(S.start),end:fmt(last.end),score,total:10,status,answerKey:key.map(x=>`${x.n}:${x.y}/${x.k}`).join(" ")})}).catch(()=>{})}catch(e){}}
+ $("quiz").classList.add("hide");$("res").classList.remove("hide");$("reg").classList.remove("hide");
+ $("rt").innerHTML=`<p><b>${S.ln}, ${S.fn} ${S.mi}.</b> · ${S.sec} · ${S.em}</p><p>Score: <b>${score}/10</b> · Attempt ${S.att} · ${status}</p><p>Start: ${fmt(S.start)}<br>End: ${fmt(last.end)}</p>`;
+ dl();
+}
+function dl(){
+ if(!last)return;const k=last.key,W=900,Hh=330+k.length*34,c=document.createElement("canvas");c.width=W;c.height=Hh;const x=c.getContext("2d");
+ x.fillStyle="#f6efdc";x.fillRect(0,0,W,Hh);x.strokeStyle="rgba(31,78,121,.12)";for(let i=0;i<W;i+=30){x.beginPath();x.moveTo(i,0);x.lineTo(i,Hh);x.stroke()}for(let j=0;j<Hh;j+=30){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke()}
+ x.save();x.translate(W/2,Hh/2);x.rotate(-.35);x.globalAlpha=.09;x.fillStyle="#000";x.font="bold 54px monospace";x.textAlign="center";for(let i=-3;i<=3;i++)x.fillText("RAYMOND D. ENTAL",0,i*150);x.restore();
+ x.strokeStyle="#1f4e79";x.lineWidth=4;x.strokeRect(10,10,W-20,Hh-20);
+ x.fillStyle="#1f4e79";x.font="bold 28px Arial";x.fillText("CAD REFRESHER MODULE – RESULT",30,56);
+ x.fillStyle="#2b2a26";x.font="18px Arial";
+ [`Name: ${last.ln}, ${last.fn} ${last.mi}.`,`Section: ${last.sec}    Email: ${last.em}`,`Attempt No.: ${last.att}    Status: ${last.status}`,`Time started: ${fmt(last.start)}`,`Time submitted: ${fmt(last.end)}`].forEach((t,i)=>x.fillText(t,30,92+i*26));
+ x.fillStyle="#b3261e";x.font="bold 34px Arial";x.fillText(`SCORE: ${last.score} / 10`,620,70);
+ x.font="bold 18px Arial";x.fillStyle="#1f4e79";x.fillText("ANSWER KEY (Your answer / Correct)",30,250);
+ x.font="15px Arial";k.forEach((r,i)=>{x.fillStyle=r.ok?"#1b6e2d":"#b3261e";const t=r.t.length>62?r.t.slice(0,60)+"…":r.t;x.fillText(`${r.n}. ${r.ok?"✔":"✘"}  Yours: ${r.y}  Key: ${r.k} – ${t}`,30,284+i*34)});
+ x.fillStyle="#2b2a26";x.font="bold 14px monospace";x.fillText("© RAYMOND D. ENTAL",W-230,Hh-24);
+ const d=c.toDataURL("image/png");$("img").src=d;const a=document.createElement("a");a.href=d;a.download=`Result_${last.ln}_${last.fn}_Attempt${last.att}.png`;document.body.appendChild(a);a.click();a.remove();
+}
+function admin(){
+ if($("ap").value!==CONFIG.ADMIN_PASS&&$("ad").classList.contains("hide"))return alert("Wrong password");
+ $("ad").classList.remove("hide");$("su").value=url().startsWith("http")?url():"";
+ $("lg").innerHTML="<tr><th>Name</th><th>Sec</th><th>Email</th><th>Att</th><th>Start</th><th>End</th><th>Score</th><th>Status</th></tr>"+ls.g("log",[]).map(r=>`<tr><td>${r.name}</td><td>${r.sec}</td><td>${r.em}</td><td>${r.att}</td><td>${r.start}</td><td>${r.end}</td><td>${r.score}/10</td><td>${r.status}</td></tr>`).join("");
+}
+function saveUrl(){ls.s("sheetUrl",$("su").value.trim());alert("Sheet URL saved on this device.")}
+document.querySelectorAll(".card").forEach(c=>{c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateX(${-py*3}deg) rotateY(${px*3}deg)`});c.addEventListener("pointerleave",()=>c.style.transform="")});
+</script></body></html>
